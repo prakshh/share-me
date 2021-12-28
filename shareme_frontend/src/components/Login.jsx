@@ -5,7 +5,7 @@ import {FcGoogle } from 'react-icons/fc';
 import shareVideo from '../assets/share.mp4';
 import logo from '../assets/logowhite.png';
 
-// import { client } from '../client';
+import { client } from '../client';
 
 const Login = () => {
 
@@ -25,9 +25,17 @@ const Login = () => {
         userName: name,
         image: imageUrl,
       };
-    //   client.createIfNotExists(doc).then(() => {
-    //     navigate('/', { replace: true });
-    //   });
+
+      // to connect the frontend to Sanity, to populate the database,
+      // create a file for Sanity client side - src/client.js
+      // take projectId and token from backend->sanity manage
+      // import the client here 
+      // add CORS origins in backend->sanity manage
+      // recreate sanity token that has Editor permissions 
+
+      client.createIfNotExists(doc).then(() => {
+        navigate('/', { replace: true });
+      });
     };
 
     return (
